@@ -10,20 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           submodules: true
 
-      - name: Checkout destination
-        uses: actions/checkout@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          ref: gh-pages
-          path: built-site
-
       - name: Setup Hugo
         run: |
-          curl -L -o /tmp/hugo.tar.gz 'https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_extended_0.110.0_linux-amd64.tar.gz'
+          curl -L -o /tmp/hugo.tar.gz 'https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_extended_0.110.0_Linux-64bit.tar.gz'
           tar -C ${RUNNER_TEMP} -zxvf /tmp/hugo.tar.gz hugo
 
       - name: Build
@@ -32,10 +25,10 @@ jobs:
       - name: Deploy
         if: github.ref == 'refs/heads/main'
         run: |
-          cp -R public/* ${GITHUB_WORKSPACE}/built-site/
-          cd ${GITHUB_WORKSPACE}/built-site
-          git add .
           git config user.name 'syedhaiderkarrar'
           git config user.email 'syedhaiderkarrar@live.com'
+          cd public
+          git init
+          git add .
           git commit -m 'Updated site'
-          git push https://binaridigital.github.io/binaryblocks/:${{ secrets.PAT_TOKEN }}@github.com/syedhaiderkarrar/binaryblocks.git HEAD:gh-pages
+          git push https://syedhaiderkarrar:${{ secrets.PAT_TOKEN }}@github.com/syedhaiderkarrar/binaryblocks.git HEAD:gh-pages
