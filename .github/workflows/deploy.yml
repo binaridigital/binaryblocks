@@ -31,4 +31,4 @@ jobs:
           git init
           git add .
           git commit -m 'Updated site'
-          git push https://syedhaiderkarrar:${{ secrets.PAT_TOKEN }}@github.com/syedhaiderkarrar/binaryblocks.git HEAD:gh-pages
+          git push https://syedhaiderkarrar:${{ secrets.PAT_TOKEN }}@github.com/binaridigital/binaryblocks.git HEAD:gh-pages
