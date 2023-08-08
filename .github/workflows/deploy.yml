@@ -38,4 +38,4 @@ jobs:
           git config user.name 'syedhaiderkarrar'
           git config user.email 'syedhaiderkarrar@live.com'
           git commit -m 'Updated site'
-          git push https://syedhaiderkarrar:${{ secrets.PAT_TOKEN }}@github.com/syedhaiderkarrar/binaryblocks.git HEAD:gh-pages
+          git push https://binaridigital:${{ secrets.PAT_TOKEN }}@github.com/syedhaiderkarrar/binaryblocks.git HEAD:gh-pages
