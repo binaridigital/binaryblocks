@@ -1,0 +1,4 @@
+baseURL = 'https://binaridigital.github.io/binaryblocks/'
+languageCode = 'en-us'
+title = 'Binary Blocks'
+theme = 'paperMod'
